@@ -1,0 +1,2 @@
+class Instantiation < Action
+end

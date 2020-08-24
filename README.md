@@ -17,7 +17,7 @@ We welcome input and engagement. Whether you would like contribute code or ideas
 ### Persistance and Blockchains
 OpenChain's default model is to store transaction records in AWS's Quantum Ledger Database (QLDB). Detailed backing data is stored a relational database, for example, in MySQL or Postgress.
 ### Configuration
-Most configuration can be found in `openchain.rb` although AWS specific configuration (and, crucially, the database endpoint) are set in `lambdas\tempalte.yaml`.
+Most configuration can be found in `openchain.rb` although AWS specific configuration (and, crucially, the database endpoint) are set in `lambdas\template.yaml`.
 #### Blockchains
 By default, any action (for example, an aggregation), will result in a record being stored in QLDB. This behavior can be disabled on `config/openchain.rb`the default blockchain can be changed, and specific actions can be set to write to alternative, or additional, blockchains. In this way, transactions may be included in multiple blockchains (perhaps Walmart and Nestle).
 
