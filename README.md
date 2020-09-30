@@ -14,6 +14,10 @@ We welcome input and engagement. Whether you would like contribute code or ideas
 ## Overview
 ### Concepts and entities
 ![High level entity diagram](/notes/openchain_entities.png?raw=true)
+### Open Questions
+* Why can't businesses be part of groups?
+* Does the google location hierarchy make sense? If so, are we comfortable with a dependency on Googles location API's?
+* Identities and identifiers: It seems to make sense that people and businesses are identified in a range of ways. In fact, it is probable that identity will be managed elsewhere. How do we accommodate this? Initial approach is to abstract out the identity notion (and add an identity type, thus: `{ type: :msisdn, identifier: '27833838181' }`or `{ type: :social_security_numner, identifier: '7210271346'}`. Does this complexity add value?
 ### Persistance and Blockchains
 OpenChain's default model is to store transaction records in AWS's Quantum Ledger Database (QLDB). Detailed backing data is stored a relational database, for example, in MySQL or Postgress.
 ### Configuration
@@ -35,3 +39,7 @@ This will result in API Gateways being created, and QLDB instances provisioned (
 It is possible to include some of the Ruby classes. Simplest is to create symbolic links from your project to the relevant classes in this repo.
 ## API
 Preliminary API's are available here: https://app.swaggerhub.com/apis/sasa-solutions/openchain/0.0.1
+
+## Other Concepts
+### GTIN numbers
+This [document](https://www.gs1.org/services/activate/how-to-create-a-GTIN) details how to create GTIN numbers. GTIN numbers cost money, so won't always be applicable.
