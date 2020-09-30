@@ -1,24 +1,18 @@
 class Person < Entity
 
-  attr_reader :first_name, :surname, :name, :identity_type, :identity_number, :msisdn
+  attr_reader :first_name, :surname, :name
 
   @first_name      = nil
   @surname         = nil
   @name            = nil
-  @identity_type   = nil
-  @identity_number = nil
-  @msisdn          = nil
 
-  def self.create(identifier:, location: nil, first_name: nil, surname: nil, name: nil, identity_type: nil, identity_number: nil, msisdn: nil)
-    person = Person.new
-    person.identifier      = identifier
+  def self.find_or_create(identifier_type:, identifier:, location: nil, first_name: nil, surname: nil, name: nil, msisdn: nil)
+    person = super.find_or_create(identifier_type: identifier_type, identifier: identifier) { Person.new }
     person.location        = location
     person.first_name      = first_name
     person.surname         = surname
-    person.name            = name
-    person.identity_type   = identity_type
-    person.identity_number = identity_number
-    person.msisdn          = msisdn
+    person.name            = name || [first_name, surname].compact.join(' ')
+    person.add_identifier(identifier_type: :msisdn, identifier: @msisdn)  if @msisdn
     person
   end
 
